@@ -68,19 +68,20 @@
         </div>
 
 
-        <p class="alert alert-warning m-2 text-center ">Die Pizza kostet 7,50 €.</p>
+        <p class="alert alert-warning m-2 text-center ">Die Pizza kostet {{ ausgabe }} €.</p>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
         const PizzaApp = {
             data() {
                 return {
-                    kaese: 'yes'
+                    kaese: null,
+                    ausgabe: '12,34'
                 }
             },
             methods: {
                 berechnen() {
-                    console.log('Berechnen');
+                    this.ausgabe = '9,99';
                 }
             }
         };

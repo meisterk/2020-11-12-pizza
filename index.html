@@ -88,36 +88,37 @@
             },
             methods: {
                 berechnen() {
-                    let preis = 0.0;
+                    let preisInCent = 0;
                     switch (this.size) {
                         case 'small':
-                            preis = 7.95;
+                            preisInCent = 795;
                             break;
                         case 'medium':
-                            preis = 9.95;
+                            preisInCent = 995;
                             break;
                         case 'large':
-                            preis = 11.95;
+                            preisInCent = 1195;
                             break;
                     }
 
                     if (this.kaese) {
-                        preis += 0.50;
+                        preisInCent += 50;
                     }
                     if (this.schinken) {
-                        preis += 1.10;
+                        preisInCent += 10;
                     }
                     if (this.zwiebeln) {
-                        preis += 1.20;
+                        preisInCent += 120;
                     }
                     if (this.oliven) {
-                        preis += 1.10;
+                        preisInCent += 110;
                     }
                     if (this.ananas) {
-                        preis += 0.80;
+                        preisInCent += 80;
                     }
 
-                    this.ausgabe = preis;
+                    const preisInEuro = preisInCent / 100;
+                    this.ausgabe = preisInEuro.toLocaleString(undefined, { minimumFractionDigits: 2 });
                 }
             }
         };

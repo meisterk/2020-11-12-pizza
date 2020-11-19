@@ -15,15 +15,18 @@
         <div class="form-group bg-light rounded m-2 p-2">
             <h2>Größe der Pizza</h2>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeSmall" value="small">
+                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeSmall" v-model="size"
+                    value="small">
                 <label class="form-check-label" for="radioSizeSmall">Small</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeMedium" value="medium">
+                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeMedium" v-model="size"
+                    value="medium">
                 <label class="form-check-label" for="radioSizeMedium">Medium</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeLarge" value="large">
+                <input class="form-check-input" type="radio" name="radioSize" id="radioSizeLarge" v-model="size"
+                    value="large">
                 <label class="form-check-label" for="radioSizeLarge">Large</label>
             </div>
         </div>
@@ -31,32 +34,31 @@
         <div class="form-group bg-light rounded m-2 p-2">
             <h2>Zutaten</h2>
             <div class="form-check">
-                <input v-bind="kaese" true-value="yes" false-value="no" class="form-check-input" type="checkbox"
-                    value="true" id="checkKaese">
+                <input v-model="kaese" class="form-check-input" type="checkbox" id="checkKaese">
                 <label class="form-check-label" for="checkKaese">
                     Käse
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkSchinken">
+                <input v-model="schinken" class="form-check-input" type="checkbox" id="checkSchinken">
                 <label class="form-check-label" for="checkSchinken">
                     Schinken
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkZwiebeln">
+                <input v-model="zwiebeln" class="form-check-input" type="checkbox" id="checkZwiebeln">
                 <label class="form-check-label" for="checkZwiebeln">
                     Zwiebeln
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkOliven">
+                <input v-model="oliven" class="form-check-input" type="checkbox" id="checkOliven">
                 <label class="form-check-label" for="checkOliven">
                     Oliven
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAnanas">
+                <input v-model="ananas" class="form-check-input" type="checkbox" id="checkAnanas">
                 <label class="form-check-label" for="checkAnanas">
                     Ananas
                 </label>
@@ -75,13 +77,21 @@
         const PizzaApp = {
             data() {
                 return {
-                    kaese: null,
+                    size: 'medium',
+                    kaese: true,
+                    schinken: false,
+                    zwiebeln: false,
+                    oliven: true,
+                    ananas: false,
                     ausgabe: '12,34'
                 }
             },
             methods: {
                 berechnen() {
-                    this.ausgabe = '9,99';
+                    let preis = 0.0;
+
+
+                    this.ausgabe = preis;
                 }
             }
         };

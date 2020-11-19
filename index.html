@@ -89,7 +89,33 @@
             methods: {
                 berechnen() {
                     let preis = 0.0;
+                    switch (this.size) {
+                        case 'small':
+                            preis = 7.95;
+                            break;
+                        case 'medium':
+                            preis = 9.95;
+                            break;
+                        case 'large':
+                            preis = 11.95;
+                            break;
+                    }
 
+                    if (this.kaese) {
+                        preis += 0.50;
+                    }
+                    if (this.schinken) {
+                        preis += 1.10;
+                    }
+                    if (this.zwiebeln) {
+                        preis += 1.20;
+                    }
+                    if (this.oliven) {
+                        preis += 1.10;
+                    }
+                    if (this.ananas) {
+                        preis += 0.80;
+                    }
 
                     this.ausgabe = preis;
                 }

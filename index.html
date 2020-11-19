@@ -65,12 +65,13 @@
             </div>
         </div>
 
+        <!-- 
         <div class="m-2">
             <button class="btn btn-block btn-primary" @click="berechnen">Preis berechnen</button>
         </div>
+        -->
 
-
-        <p class="alert alert-warning m-2 text-center ">Die Pizza kostet {{ ausgabe }} €.</p>
+        <p class="alert alert-warning m-2 text-center ">Die Pizza kostet {{ gesamtPreis }} €.</p>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -86,8 +87,8 @@
                     ausgabe: '12,34'
                 }
             },
-            methods: {
-                berechnen() {
+            computed: {
+                gesamtPreis() {
                     let preisInCent = 0;
                     switch (this.size) {
                         case 'small':
@@ -118,7 +119,13 @@
                     }
 
                     const preisInEuro = preisInCent / 100;
-                    this.ausgabe = preisInEuro.toLocaleString(undefined, { minimumFractionDigits: 2 });
+                    const preisString = preisInEuro.toLocaleString('de', { minimumFractionDigits: 2 });
+                    return preisString;
+                }
+            },
+            methods: {
+                berechnen() {
+
                 }
             }
         };
